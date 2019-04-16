@@ -25,4 +25,15 @@ public class Dispatcher {
 			return Collections.singletonMap("message", "Not yet implemented");
 		}
 	}
+	
+	public static Object processPost(HttpServletRequest request, HttpServletResponse response) {
+		final String uri = request.getRequestURI().replace("/ServletExample/api", "");
+		System.out.println("Inside Dispatcher: " + request.getMethod() + " request going to " + uri);
+		switch(uri) {
+		case "/todos":
+			return todoService.createTodo(request, response);
+		default:
+			return Collections.singletonMap("message", "Not yet implemented");
+		}
+	}
 }

@@ -10,4 +10,5 @@ import com.revature.model.Todo;
 public interface TodoService {
 
 	List<Todo> getAllTodos(HttpServletRequest request, HttpServletResponse response);
+	Todo createTodo(HttpServletRequest request, HttpServletResponse response);
 }

@@ -31,4 +31,13 @@ public class DispatcherServlet extends HttpServlet {
 		resp.getOutputStream().write(mapper.writeValueAsBytes(Dispatcher.process(req, resp)));
 		System.out.println("Response sent successfully!");
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("Entering DispatcherServlet.doPost");
+		resp.setContentType("application/json");
+		
+		resp.getOutputStream().write(mapper.writeValueAsBytes(Dispatcher.processPost(req, resp)));
+		System.out.println("Response sent successfully!");
+	}
 }
