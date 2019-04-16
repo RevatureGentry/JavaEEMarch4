@@ -4,4 +4,18 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  
+  <servlet>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>com.revature.web.DispatcherServlet</servlet-class>
+  	
+  	<!-- Tells Servlet Container to eagerly load this Servlet first -->
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>FrontController</servlet-name>
+  	<url-pattern>/api/*</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

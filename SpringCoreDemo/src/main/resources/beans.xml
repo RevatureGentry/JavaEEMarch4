@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+<!-- All Bean Definitions are places within the <beans> root element -->
+
+<bean name="englishGreeter" class="com.revature.beanfactory.service.Greeter">
+	<constructor-arg ref="englishMessageService"></constructor-arg>
+</bean>
+
+<bean name="spanishGreeter" class="com.revature.beanfactory.service.Greeter">
+	<constructor-arg ref="spanishMessageService"></constructor-arg>
+</bean>
+
+<bean name="greeter" class="com.revature.beanfactory.service.Greeter">
+	<constructor-arg ref="npeGreeterService"></constructor-arg>
+</bean>
+
+<bean name="englishMessageService" 
+	  class="com.revature.beanfactory.service.EnglishGreeterService" />
+
+<bean name="spanishMessageService"
+	  class="com.revature.beanfactory.service.SpanishGreeterService" />
+	  
+<bean name="npeGreeterService"
+	  class="com.revature.beanfactory.service.NpeGreeterService" />
+
+</beans>
