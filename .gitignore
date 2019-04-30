@@ -1,7 +1,6 @@
 *.classpath*
 *.settings*
 *.project*
-*resources*
 *target*
 *mvn*
 *.properties
