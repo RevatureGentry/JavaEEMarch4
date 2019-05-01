@@ -13,30 +13,23 @@ import com.revature.repository.HeroRepository;
 public class HeroServiceAlpha implements HeroService {
 	
 	private static Logger logger = Logger.getLogger(HeroServiceAlpha.class);
-	
-	//Dependency
+
 	@Autowired
 	private HeroRepository heroRepository;
 	
-	public HeroServiceAlpha() {}
-
-	public HeroServiceAlpha(HeroRepository heroRepository) {
-		logger.trace("Constructor Injection");
-		this.heroRepository = heroRepository;
-	}
-	
-	@Override
-	public List<Hero> getAllHeroes() {
-		return heroRepository.findAll();
+	public HeroServiceAlpha() {
+		logger.trace("Constructor Injection (no-args)");
 	}
 
-	@Override
 	public boolean registerHero(Hero hero) {
 		heroRepository.save(hero);
 		return hero.getId() != 0;
 	}
 
-	@Override
+	public List<Hero> getAllHeroes() {
+		return heroRepository.findAll();
+	}
+
 	public Hero getHero(String name) {
 		return heroRepository.findByName(name);
 	}

@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller("viewController")
 public class ViewControllerAlpha implements ViewController {
-	
+
 	private static Logger logger = Logger.getLogger(ViewControllerAlpha.class);
 	
-	@RequestMapping(value = {"/","/index"}, method=RequestMethod.GET)
+	@RequestMapping(value = {"/","/index"}, method = RequestMethod.GET)
 	public String index() {
-		logger.trace("Return index.html to the user.");
+		logger.info("Getting index HTML from View Controller.");
 		return "index";
 	}
 }

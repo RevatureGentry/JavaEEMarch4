@@ -29,6 +29,12 @@ public class Hero {
 	
 	public Hero() {}
 
+	public Hero(String name, String superPower, boolean hasCape) {
+		this.name = name;
+		this.superPower = superPower;
+		this.hasCape = hasCape;
+	}
+	
 	public Hero(int id, String name, String superPower, boolean hasCape) {
 		this.id = id;
 		this.name = name;
