@@ -2,7 +2,9 @@ package com.revature.util;
 
 import com.revature.ajax.ClientMessage;
 
-public class ClientMessageUtil {
-	public static final ClientMessage REGISTRATION_SUCCESSFUL = new ClientMessage("Hero registered successfully.");
-	public static final ClientMessage SOMETHING_WENT_WRONG = new ClientMessage("Something went wrong.");
+public final class ClientMessageUtil {
+	public static final ClientMessage REGISTRATION_SUCCESSFUL = new ClientMessage("REGISTRATION SUCCESSFUL");
+	public static final ClientMessage SOMETHING_WRONG = new ClientMessage("SOMETHING WENT WRONG");
+	public static final ClientMessage INVALID_DATA = new ClientMessage("INVALID FORM DATA");
+	public static final ClientMessage HERO_NOT_FOUND = new ClientMessage("HERO NOT FOUND");
 }

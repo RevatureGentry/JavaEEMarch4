@@ -9,7 +9,7 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-
+	
 		<!-- Specifies where the properties file is located -->
 		<log4j.configuration>log4j.properties</log4j.configuration>
 	</properties>
@@ -70,7 +70,7 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.5.0</version>
 		</dependency>
-
+		
 		<!-- JAX-B: for XML Marshalling -->
 		<dependency>
 			<groupId>javax.xml</groupId>

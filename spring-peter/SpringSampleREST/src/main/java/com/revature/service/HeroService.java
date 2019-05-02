@@ -6,6 +6,6 @@ import com.revature.model.Hero;
 
 public interface HeroService {
 	public boolean registerHero(Hero hero);
-	List<Hero> getAllHeroes();
+	public List<Hero> getAllHeroes();
 	public Hero getHero(String name);
 }
