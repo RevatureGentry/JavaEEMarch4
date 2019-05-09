@@ -27,6 +27,7 @@ public class TweetServiceImpl implements TweetService {
 
 	@Override
 	public Tweet createTweet(Tweet tweet) {
+		tweet.setTimestamp(System.currentTimeMillis());
 		return repo.save(tweet);
 	}
 
