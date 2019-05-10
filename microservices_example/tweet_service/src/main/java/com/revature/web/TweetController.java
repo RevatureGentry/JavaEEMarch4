@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.clients.CommentClient;
 import com.revature.exception.TweetNotFoundException;
 import com.revature.model.Tweet;
 import com.revature.service.TweetService;
@@ -25,18 +26,26 @@ public class TweetController {
 	@Autowired
 	private TweetService service;
 	
-	// GET /tweets/{username} --> @PathVariable
-	@GetMapping(value="/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Tweet> getAllTweetsByUsername(@PathVariable("username") String username) {
-		System.out.println("Username from path variable: " + username);
-		return service.findAllTweetsByUsername(username);
+	@Autowired
+	private CommentClient commentClient;
+	
+	// GET /tweets/{tweetId} --> @PathVariable
+	@GetMapping(value="/{tweetId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Tweet getTweetById(@PathVariable("tweetId") Long tweetId) {
+		System.out.println("Tweet ID from request param: " + tweetId);
+		Tweet foundById = service.findTweetById(tweetId);
+		
+		// Invoke the magic of the Feign Client
+		foundById.setComments(commentClient.findAllCommentsByTweetId(tweetId));
+		
+		return foundById;
 	}
 	
-	// GET /tweets?tweetId= --> @RequestParam
+	// GET /tweets?username= --> @RequestParam
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-	public Tweet getTweetById(@RequestParam("tweetId") Long tweetId) {
-		System.out.println("Tweet ID from request param: " + tweetId);
-		return service.findTweetById(tweetId);
+	public List<Tweet> getAllTweetsByUsername(@RequestParam("username") String username) {
+		System.out.println("Username from path variable: " + username);
+		return service.findAllTweetsByUsername(username);
 	}
 	
 	

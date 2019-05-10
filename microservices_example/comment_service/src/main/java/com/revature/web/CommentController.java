@@ -45,14 +45,9 @@ public class CommentController {
 			Comment created = service.createComment(comment);
 			return ResponseEntity.created(URI.create("/comments?id=" + created.getId())).build();
 		} catch (Exception e) {
-			return ResponseEntity.unprocessableEntity().build();
+			e.printStackTrace();
+			return ResponseEntity.unprocessableEntity().body(e.getMessage());
 		}
 	}
-	
-	
-	
-	
-	
-	
 	
 }
