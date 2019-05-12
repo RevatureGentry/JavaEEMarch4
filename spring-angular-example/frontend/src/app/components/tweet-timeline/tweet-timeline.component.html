@@ -1,0 +1,17 @@
+
+
+<div class="container col-md-8 offset-md-2 col-sm-6 offset-sm-3">
+  <div *ngFor="let tweet of tweets">
+    <div class="d-flex flex-row justify-content-between">
+      <h1>{{ tweet.content }}</h1>
+      <small>Posted by {{ tweet.username }} on {{ tweet.timestamp | date:'medium' }}</small>
+    </div>
+    <h4>Comments:</h4>
+    <div *ngFor="let comment of tweet.comments">
+      <div class="d-flex flex-row justify-content-between">
+          <h6>{{ comment.content }}</h6>
+          <small>Comment posted by {{ comment.username }} on {{ comment.timestamp | date:'medium' }}</small>
+      </div>
+    </div>
+  </div>
+</div>
