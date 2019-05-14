@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="mt-5 col-md-8 offset-md-2 col-sm-6 offset-sm-3">
+  <form novalidate (ngSubmit)="postTweet()">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Create Tweet</h5>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="tweet">Tweet Content</label>
+          <input type="text" name="tweet" class="form-control" [(ngModel)]="tweet.content">
+        </div>
+      </div>
+      <div class="card-footer">
+        <input type="submit" class="btn btn-outline-success" value="Post Tweet">
+      </div>
+    </div>
+  </form>
+</div>

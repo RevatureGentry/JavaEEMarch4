@@ -1,0 +1,42 @@
+<div class="container mt-4 col-md-8 offset-md-2 col-sm-10 offset-sm-1">
+  <!-- Invoke the attemptRegister function in the RegistrationComponent when submit button pressed -->
+  <form novalidate (ngSubmit)="attemptRegistration()">
+    <div class="card">
+      <div class="card-title">
+        <h5 class="card-header">User Registration</h5>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" name="username" [(ngModel)]="regForm.username" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="password" [(ngModel)]="regForm.password" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" name="email" [(ngModel)]="regForm.email" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="firstname">First Name</label>
+          <input type="text" name="firstname" [(ngModel)]="regForm.firstname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="lastname">Last Name</label>
+          <input type="text" name="lastname" [(ngModel)]="regForm.lastname" class="form-control">
+        </div>
+      </div>
+      <div class="card-footer d-flex flex-row justify-content-between">
+        <input type="submit" class="btn btn-outline-info" value="Register">
+        <button type="button" class="btn btn-outline-success" [routerLink]="['/']">Back to Login</button>
+      </div>
+    </div>
+
+    <!-- Div to hold Registration Response sent from Spring Backend -->
+    <div *ngIf="message">
+      <div [ngClass]="messageStyle">{{ message }}</div>
+    </div>
+  </form>
+
+</div>
